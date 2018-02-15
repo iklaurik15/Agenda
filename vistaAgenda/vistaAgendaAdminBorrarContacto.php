@@ -10,6 +10,8 @@ and open the template in the editor.
         <title>Borrar Contacto</title>
     </head>
     <body>
+        
+        
         <h1><em>BORRAR CONTACTO</em></h1>
         <form action="../controladorAgenda/controladorAgendaAdminBorrarContacto.php" method="post">
         <select name="comboContacto" >

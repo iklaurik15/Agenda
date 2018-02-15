@@ -10,6 +10,7 @@ and open the template in the editor.
         <title>Formulario</title>
     </head>
     <body>
+                 
         <h1><em>NUEVO CONTACTO</em></h1>
         
         <form action="../controladorAgenda/controladorAgendaAdminAnadirContacto.php" method="post">

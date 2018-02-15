@@ -21,13 +21,12 @@ class Contacto{
      $this->link->query("CALL spInsertarContactoFichero('$nombre','$apellido','$telefono')");
  }
  
- public function eliminar_contacto($id_contacto){
-     $this->link->query("CALL spBorrarContacto('$id_contacto')");
-     
- } 
- 
- public function modificar_contacto($id_contacto,$nombre,$apellido,$telefono,$email1,$email2,$grupo1,$grupo2,$grupo3){
-     $this->link->query("CALL spModificarContacto('$id_contacto','$nombre','$apellido','$telefono','$email1','$email2','$grupo1','$grupo2','$grupo3')");
+ public function crear_contactoSP($nombre,$apellido,$telefono){
+     $query="INSERT INTO contactos(nombre,apellido,telefono) VALUES(?,?,?)";// ? sinboloak parametroa adierazten du
+     $sqlPrep = $this->link->prepare($query); 
+     $sqlPrep->bind_param("s","s","i",$nombre,$apellido,$telefono);     
+     $sqlPrep->execute();        
+     $this->link->close();
  }
  
  public function crear_contactoTransac($nombre,$apellido,$telefono,$email1) {
@@ -66,6 +65,16 @@ class Contacto{
      }
     
   }
+ 
+ public function eliminar_contacto($id_contacto){
+     $this->link->query("CALL spBorrarContacto('$id_contacto')");
+     
+ } 
+ 
+ public function modificar_contacto($id_contacto,$nombre,$apellido,$telefono,$email1,$email2,$grupo1,$grupo2,$grupo3){
+     $this->link->query("CALL spModificarContacto('$id_contacto','$nombre','$apellido','$telefono','$email1','$email2','$grupo1','$grupo2','$grupo3')");
+ }
+ 
 }
 
 ?>

@@ -1,4 +1,5 @@
 <?php
+   
     require_once('../modeloAgenda/modeloAgendaAdmin.php');
     
     $nombre = filter_input(INPUT_POST, 'nombre');
@@ -14,7 +15,7 @@
     $contacto = new Contacto();
     $contacto->crear_contacto($nombre,$apellido,$telefono,$email1,$email2,$grupo1,$grupo2,$grupo3);
     
-    
+     header("Refresh:1; url=../index.php");    
     
 
 ?>

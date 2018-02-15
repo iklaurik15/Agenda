@@ -5,4 +5,7 @@
     
     $contacto = new Contacto();
     $contacto->eliminar_contacto($id_contacto);
+    
+    header("Refresh:1; url=../index.php");
+   
 ?>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-02-2018 a las 19:54:38
+-- Tiempo de generación: 15-02-2018 a las 19:19:01
 -- Versión del servidor: 10.1.28-MariaDB
 -- Versión de PHP: 7.1.10
 
@@ -154,7 +154,10 @@ CREATE TABLE `contactos` (
 
 INSERT INTO `contactos` (`id_contacto`, `nombre`, `apellido`, `telefono`) VALUES
 (54, 'Iker', 'Larrea', 671136181),
-(55, 'Ander', 'Larrea', 69856457);
+(66, 'Ander', 'Larrea', 698564547),
+(67, 'pepe', 'dasd', 69584567),
+(68, 'pepe', 'dasd', 69584567),
+(69, 'czcxz', 'czxcxzc', 6958654);
 
 -- --------------------------------------------------------
 
@@ -175,8 +178,11 @@ INSERT INTO `contactosgrupos` (`id_contacto`, `id_grupo`) VALUES
 (54, 4),
 (54, 5),
 (54, 6),
-(55, 4),
-(55, 5);
+(66, 4),
+(66, 6),
+(67, 4),
+(68, 4),
+(69, 5);
 
 -- --------------------------------------------------------
 
@@ -197,7 +203,10 @@ CREATE TABLE `email` (
 INSERT INTO `email` (`id_email`, `correo`, `id_contacto`) VALUES
 (69, 'bbb@gmail.com', 54),
 (70, 'ddd@gmail.com', 54),
-(71, 'dsffsd@gmail.com', 55);
+(80, 'and2@gmail.com', 66),
+(81, 'p@gmail.com', 67),
+(82, 'p@gmail.com', 68),
+(83, 'cac@gmail.com', 69);
 
 -- --------------------------------------------------------
 
@@ -284,13 +293,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `contactos`
 --
 ALTER TABLE `contactos`
-  MODIFY `id_contacto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+  MODIFY `id_contacto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
 
 --
 -- AUTO_INCREMENT de la tabla `email`
 --
 ALTER TABLE `email`
-  MODIFY `id_email` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+  MODIFY `id_email` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
 
 --
 -- AUTO_INCREMENT de la tabla `grupo`

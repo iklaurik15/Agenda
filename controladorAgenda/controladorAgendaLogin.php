@@ -1,6 +1,6 @@
 <?php 
-    session_start();
-
+  
+session_start();
     require_once '../modeloAgenda/modeloAgendaUsuario.php';
     
     if(isset($_POST['chkRecordar'])&&($_POST['chkRecordar']) == true ){
@@ -11,17 +11,12 @@
     $usuario=new Usuario();
     $usuario->comprobarLogin();
 
-    if($usuario->comprobarLogin()){ 
-        
-        if($_SESSION['rol'] == "administrador"){
-            require_once '../vistaAgenda/vistaAgendaAdmin.php';
-        }else{
-            require_once '../vistaAgenda/vistaAgendaUsuario.php';
-        }       
-        
-    }else{        
-        header("Location:../index.php");            
-        
+    if($usuario->comprobarLogin() == true){ 
+        require_once '../vistaAgenda/vistaAgendaAcciones.php';        
+   
+    }else{
+        echo "Email o contraseña incorrecta.";
+        header("Refresh:2; url=../index.php");        
     }
     
     

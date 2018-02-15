@@ -2,10 +2,12 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Modificar Contacto</title>
-               
+        <title>Modificar Contacto</title>               
     </head>
     <body>
+        
+        
+        
         <h1><em>MODIFICAR CONTACTO</em></h1>
         <form action="../controladorAgenda/controladorAgendaAdminModificarContacto.php" method="post">
         <select id="combo" name="comboContacto" onchange="rellenarDatos()" >
@@ -73,7 +75,7 @@
                 var email = datos[3].split(',');
                 var grupo = datos[4].split(',');
                 
-                alert (grupo);
+                
                 if(email[1] == null){
                     email[1] = "";
                 }
