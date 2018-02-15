@@ -15,20 +15,21 @@ and open the template in the editor.
            <form name="loginForm" action="controladorAgenda/controladorAgendaLogin.php" method="POST">
                 <div>                    
                     <div>
-                        <input type="text" name="usuario" placeholder="Usuario" required />
+                        <input type="text" name="usuario" placeholder="Usuario" 
+                        <?php if (isset($_COOKIE["cook_user"])){echo 'value='.$_COOKIE["cook_user"];}?> required />
                     </div>
                     <div>
-                        <input type="password" name="password" placeholder="Password"  required />
-                    </div>
+                        <input type="password" name="password" placeholder="Password"  
+                        <?php if (isset($_COOKIE["cook_pass"])){echo 'value='.$_COOKIE["cook_pass"];}?> required />
+                    </div>                    
                 </div>
                 <br><input type="submit" value="Entrar"/>
-                <br><a href="vistaAgenda/vistaAgendaRegistro.php">Registrarse</a>
-                <br><a href="vistaAgenda/vistaAgendaFormTransac.php">Formulario transaccion</a>
-<!--                <br><input type="checkbox" name="chkRecordar">Recordarme-->
+                <input type="checkbox" name="chkRecordar"> Recordarme                                
             </form>
             
-<!--            <a href="vistaAgenda/vistaAgendaUsuario.php">Usuario</a><br>
-            <a href="vistaAgenda/vistaAgendaAdmin.php">Administrador</a><br>            -->
+            <br><a href="vistaAgenda/vistaAgendaRegistro.php">Registrarse</a>
+            <br><a href="vistaAgenda/vistaAgendaFormTransac.php">Formulario transaccion</a>
+         
         </section>
     </body>
 </html>

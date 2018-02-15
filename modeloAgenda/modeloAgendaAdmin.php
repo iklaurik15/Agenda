@@ -17,6 +17,10 @@ class Contacto{
     
  }
  
+ public function crear_contacto_Fichero($nombre,$apellido,$telefono) {
+     $this->link->query("CALL spInsertarContactoFichero('$nombre','$apellido','$telefono')");
+ }
+ 
  public function eliminar_contacto($id_contacto){
      $this->link->query("CALL spBorrarContacto('$id_contacto')");
      
@@ -31,24 +35,22 @@ class Contacto{
      $this->link->autocommit(false);
      $stop = false;
      
-     $sql1 = "CALL spInsertarContactoTransac('$nombre','$apellido','$telefono')";
-          
+     $sql1 = "INSERT INTO contactos(nombre,apellido,telefono) VALUES ('$nombre','$apellido','$telefono')";
+     $sql2 = "SELECT MAX(id_contacto) FROM contactos" ;
+     
      $result = $this->link->query($sql1);
      
      if($this->link->errno) {
       $stop = true; // Si entro aqui, habra un error, entonces STOP!
       echo "Error: " . $this->link->error . ". ";
      }
-     
-     foreach ($result as $res){
-          $idContactoRes=$res;
-     }
+      
+          
+     $idContacto= mysqli_fetch_array($this->link->query($sql2))[0];
 
-     $idcontacto = $idContactoRes['ultimoId'];
+     $sql3 = "INSERT INTO email (correo,id_contacto) VALUES ('$email1','$idContacto')";
 
-     $sql2 = "CALL spInsertarEmailTransac('$email1','$idcontacto')";
-
-     $result = $this->link->query($sql2);
+     $result = $this->link->query($sql3);
 
      if($this->link->errno) {
        $stop = true; // Si entro aqui, habra un error, entonces STOP!
